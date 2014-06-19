@@ -18,9 +18,12 @@ export default Ember.Component.extend({
   _isLoadingTimer: null,
   _progressTimer: null,
   progressService: null, // set by injection
+  // allow progress to be overridden from the template, otherwise default to
+  // the progressService
+  progress: Ember.computed.oneWay('progressService.progress'),
   progressDidChange: function() {
     var component = this;
-    var progress = this.get('progressService.progress');
+    var progress = this.get('progress');
 
     if (progress === 100) {
       Ember.run.cancel(component._isLoadingTimer);
