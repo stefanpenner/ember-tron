@@ -5,9 +5,11 @@ var Router = Ember.Router.extend({
   loadingProgress: 0,
   _doTransition: function() {
     var router = this;
-    router.set('loadingProgress', (Math.random() * 40 + 40));
+    var progressService = this.get('progressService');
+    progressService.set('progress', (Math.random() * 40 + 40));
     return this._super.apply(this, arguments).promise.finally(function() {
-      router.set('loadingProgress', 100);
+      progressService.set('progress', 100);
+      console.log(100);
     });
   }
 });
