@@ -1,0 +1,28 @@
+html, body {
+  margin: 20px;
+}
+.ember-tron {
+  width: 0%;
+  height: 4px;
+  background: #7bafff;
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  animation-name: ember-tron-progress;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  transition: opacity .3s, width .5s ease-in-out;
+  -webkit-animation-name: ember-tron-progress;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-transition: opacity .3s, width .5s ease-in-out;
+  opacity: 0;
+  z-index: 10;
+}
+
+.ember-tron.ember-tron-active {
+  opacity: 1;
+}
+
